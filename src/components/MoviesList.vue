@@ -20,6 +20,16 @@ export default {
                     console.log(error);
                 });
         },
+
+        getMovieImageUrl(posterPath) {
+            if (posterPath) {
+                const baseUrl = "https://image.tmdb.org/t/p/";
+                const imageSize = "w300"; 
+                return `${baseUrl}${imageSize}${posterPath}`;
+            } else {
+                return require("@/assets/default_movie_poster.jpg");
+            }
+        },
         
     },
     

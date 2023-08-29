@@ -21,11 +21,19 @@ export default {
                     <li class="nav-item text-white">
                         <a class="nav-link" href="#">Serie TV</a>
                     </li>
+                    <li class="nav-item text-white">
+                        <a class="nav-link" href="#">Originali</a>
+                    </li>
+                    <li class="nav-item text-white">
+                        <a class="nav-link" href="#">Aggiunti di recente</a>
+                    </li>
+                    <li class="nav-item text-white">
+                        <a class="nav-link" href="#">La mia lista</a>
+                    </li>
                 </ul>
-
                 <form class="d-flex" role="search">
-                    <input class="form-control me-2 text-white bg-dark border-0" type="search" placeholder="Search"
-                        aria-label="Search">
+                    <input class="form-control me-2 text-white bg-dark border-0" v-model="searchQuery" @input="filterMovies"
+                        type="search" placeholder="Search">
                     <button class="btn text-white bg-primary" type="submit">Search</button>
                 </form>
             </div>
@@ -33,4 +41,14 @@ export default {
     </div>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.form-control.placeholder {
+    color: #fff;
+}
+
+a.nav-link {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    color: #fff;
+}
+</style>
