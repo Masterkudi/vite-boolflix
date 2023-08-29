@@ -10,7 +10,7 @@ export default {
     methods: {
         fetchMovies() {
             const apiKey = "12eb07f498add0bf766c500177706cec"; 
-            const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=batman`;
+            const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=avengers`;
 
             axios.get(url)
                 .then((response) => {
