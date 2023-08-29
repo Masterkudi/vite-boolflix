@@ -15,14 +15,12 @@ export default {
 <template>
   <TheHeader></TheHeader>
   <main>
-    <div class="gallery">
+    <div class="gallery p-4 bg-dark">
       <div class="row row-cols-6">
-        <div class="col" v-for="(movies, i) in moviesList" :key="`movies_id`">
+        <div class="col" v-for="(movie, i) in movies" :key="`movie_id`">
           <div class="card border-0 rounded-0 h-100 bg-transparent text-white">
-            <img :src="movies.title" alt="" />
-            <div class="card-body p-0 pb-5 pt-2">
-              {{ movies.series }}
-            </div>
+            <img :src="getMovieImageUrl(movie.poster_path)" alt="Movie Poster" class="card-img-top">
+                <h5 class="card-title">{{ movie.title }}</h5>
           </div>
         </div>
       </div>
