@@ -9,10 +9,15 @@ export default {
     },
     methods: {
         fetchMovies() {
-            const url = "https://developer.themoviedb.org/reference/search-movie?api_key=12eb07f498add0bf766c500177706cec";
+            const url = "https://api.themoviedb.org/3/search/movie?api_key=12eb07f498add0bf766c500177706cec&query=amore";
 
+                /* params: {
+                    api_key: this.apiKey,
+                    query: this.query,
+                },
+                */
             axios.get(url).then((response) => {
-                this.movies = response.data.data;
+                this.movies = response.data.results;
                 console.log(this.movies)
         });
         },
@@ -26,13 +31,13 @@ export default {
 <template>
     <div class="row row-cols-5">
        
-        <div class="col" v-for="movie in movies" :key="movie.id">
+        <div class="col" v-for="movies in moviesList" :key="movies.id">
             <div class="card rounded-0">
-                <img :src="movie.card_images[0].image_url" class="card-img-top" alt="...">
+                <img :src="movies.results[0].poster_path" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">{{ movie.name }}</h5>
+                    <h5 class="card-title">{{ movies.title }}</h5>
                     <p class="card-text">
-                        {{ movie.archetype }}
+                        {{ movies.archetype }}
                     </p>
                 </div>
             </div>
