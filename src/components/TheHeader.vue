@@ -1,6 +1,9 @@
 <script>
+import SearchBar from './SearchBar.vue';
 export default {
-
+    components: {
+        SearchBar
+    }
 }
 
 </script>
@@ -30,11 +33,9 @@ export default {
         </ul>
         <nav class="navbar bg-body-black">
             <div class="container-fluid">
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2 text-white bg-dark border-0" v-model="searchQuery" @input="filterMovies"
-                        type="search" placeholder="Search">
-                    <button class="btn text-white bg-primary" type="submit">Search</button>
-                </form>
+                <SearchBar @search = "">
+
+                </SearchBar>
             </div>
         </nav>
     </div>
