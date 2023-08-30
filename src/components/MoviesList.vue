@@ -17,20 +17,16 @@ export default {
                 const imageSize = "w300";
                 return `${baseUrl}${imageSize}${poster_path}`;
             } else {
-                return ("@/assets/img/default_poster.jpg");
+                return "@/assets/img/default_poster.jpg";
             }
         },
 
-        getMovieDetails(original_language, original_title, popularity, release_date, vote_average) {
-            if (original_language, original_title, popularity, release_date, vote_average) {
-                const baseUrl = "https://image.tmdb.org/t/p/";
-                const imageSize = "w300";
-                return `${baseUrl}${imageSize}${original_language, original_title, popularity, release_date, vote_average}`;
-            }
+        showDetails(index) {
+            this.store.movies[index].showDetails = true;
+        },
+        hideDetails(index) {
+            this.store.movies[index].showDetails = false;
         }
-
-
-
     },
 };
 </script>
@@ -40,7 +36,13 @@ export default {
         <div class="col" v-for="(movie, i) in store.movies" :key="`movie_id`">
             <div class="card border-0 rounded-0 h-100 bg-transparent text-white">
                 <img :src="getMovieImageUrl(movie.poster_path)" alt="Movie Poster" class="card-img-top">
-
+                <div class="movie-details" v-if="movie.showDetails">
+                    <p>Language: {{ movie.original_language }}</p>
+                    <p>Popularity: {{ movie.popularity }}</p>
+                    <p>original title: {{ movie.original_title }}</p>
+                    <p>release date: {{ movie.release_date }}</p>
+                    <p>average vote: {{ movie.vote_average }}</p>
+                </div>
                 <h5 class="card-title">{{ movie.title }}</h5>
             </div>
         </div>
@@ -78,5 +80,21 @@ export default {
 .card-img-top {
     height: 100%;
     width: 100%;
+}
+
+.movie-details {
+    display: none;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: #fff;
+    transition: opacity 0.3s;
+}
+
+.card:hover .movie-details {
+    display: block;
 }
 </style>
