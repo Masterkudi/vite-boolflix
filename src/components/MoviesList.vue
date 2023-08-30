@@ -15,11 +15,19 @@ export default {
             if (poster_path) {
                 const baseUrl = "https://image.tmdb.org/t/p/";
                 const imageSize = "w300";
-                return `${baseUrl}${imageSize}${poster_path}`;      
+                return `${baseUrl}${imageSize}${poster_path}`;
             } else {
-                return ("../assets/img/default_poster.jpg");
+                return ("@/assets/img/default_poster.jpg");
             }
         },
+
+        getMovieDetails(original_language, original_title, popularity, release_date, vote_average) {
+            if (original_language, original_title, popularity, release_date, vote_average) {
+                const baseUrl = "https://image.tmdb.org/t/p/";
+                const imageSize = "w300";
+                return `${baseUrl}${imageSize}${original_language, original_title, popularity, release_date, vote_average}`;
+            }
+        }
 
 
 
