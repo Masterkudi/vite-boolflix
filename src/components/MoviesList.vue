@@ -22,10 +22,10 @@ export default {
         },
 
         showDetails(index) {
-            this.store.movies[index].showDetails = true;
+            store.movies[index].showDetails = true;
         },
         hideDetails(index) {
-            this.store.movies[index].showDetails = false;
+            store.movies[index].showDetails = false;
         }
     },
 };
@@ -33,16 +33,17 @@ export default {
 
 <template>
     <div class="row row-cols-5">
-        <div class="col" v-for="(movie, i) in store.movies" :key="`movie_id`">
+        <div class="col" v-for="(movie, i) in store.movies" :key="movie.id">
+
             <div class="card border-0 rounded-0 h-100 bg-transparent text-white">
                 <img :src="getMovieImageUrl(movie.poster_path)" alt="Movie Poster" class="card-img-top">
-                <div class="movie-details" v-if="movie.showDetails">
+                <!--<div class="movie-details" v-if="movie.showDetails">
                     <p>Language: {{ movie.original_language }}</p>
                     <p>Popularity: {{ movie.popularity }}</p>
                     <p>original title: {{ movie.original_title }}</p>
                     <p>release date: {{ movie.release_date }}</p>
                     <p>average vote: {{ movie.vote_average }}</p>
-                </div>
+                </div>-->
                 <h5 class="card-title">{{ movie.title }}</h5>
             </div>
         </div>

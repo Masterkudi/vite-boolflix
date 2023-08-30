@@ -4,8 +4,9 @@ import axios from "axios";
 export const store = reactive({
     searchText: "",
     movies: [],
+    showDetails: {},
     paginationInfo: {},
-    currentPage: 1,
+    currentPage: 2,
     isLoading: false,
 })
 
