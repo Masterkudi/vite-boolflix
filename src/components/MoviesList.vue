@@ -9,8 +9,8 @@ export default {
     },
     methods: {
         fetchMovies() {
-            const apiKey = "12eb07f498add0bf766c500177706cec"; 
-            const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=avengers`;
+            const apiKey = "12eb07f498add0bf766c500177706cec";
+            const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=the+batman+the+dark+knight`;
 
             axios.get(url)
                 .then((response) => {
@@ -21,18 +21,18 @@ export default {
                 });
         },
 
-        getMovieImageUrl(posterPath) {
-            if (posterPath) {
+        getMovieImageUrl(poster_path) {
+            if (poster_path) {
                 const baseUrl = "https://image.tmdb.org/t/p/";
-                const imageSize = "w300"; 
-                return `${baseUrl}${imageSize}${posterPath}`;
-            } else {
-                return require("@/assets/default_movie_poster.jpg");
-            }
+                const imageSize = "w300";
+                return `${baseUrl}${imageSize}${poster_path}`;
+            } /*else {
+                return ("@/assets/default_movie_poster.jpg");
+            }*/
         },
-        
+
     },
-    
+
     mounted() {
         this.fetchMovies();
     },
@@ -41,19 +41,21 @@ export default {
 
 <template>
     <div class="row row-cols-5">
-        <div class="col p-1" v-for="movie in movies" :key="movie.id">
-            <div class="card rounded-0"></div>
-            <h5 class="card-title text-center p-2">{{ movie.title }}</h5>
+        <div class="col" v-for="(movie, i) in movies" :key="`movie_id`">
+            <div class="card border-0 rounded-0 h-100 bg-transparent text-white">
+                <img :src="getMovieImageUrl(movie.poster_path)" alt="Movie Poster" class="card-img-top">
+                <h5 class="card-title">{{ movie.title }}</h5>
+            </div>
         </div>
     </div>
 </template>
 
 <style scoped lang="scss">
-
 .gallery {
-    
+
     background-color: lightgray;
 }
+
 .card {
     background-color: #18181A;
     height: 200px;
@@ -76,6 +78,6 @@ export default {
 }
 
 .card-img-top {
-    width: 50%;
+    width: 100%;
 }
 </style>
