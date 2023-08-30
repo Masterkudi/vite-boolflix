@@ -17,7 +17,7 @@ export default {
                 const imageSize = "w300";
                 return `${baseUrl}${imageSize}${poster_path}`;      
             } else {
-                return ("@/assets/default_movie_poster.jpg");
+                return ("../assets/img/default_poster.jpg");
             }
         },
 
@@ -32,7 +32,7 @@ export default {
         <div class="col" v-for="(movie, i) in store.movies" :key="`movie_id`">
             <div class="card border-0 rounded-0 h-100 bg-transparent text-white">
                 <img :src="getMovieImageUrl(movie.poster_path)" alt="Movie Poster" class="card-img-top">
-                
+
                 <h5 class="card-title">{{ movie.title }}</h5>
             </div>
         </div>
@@ -41,6 +41,7 @@ export default {
 
 <style scoped lang="scss">
 .row.row-cols-5 {
+    min-height: 100vh;
     background-color: #212529;
     padding: 2rem;
 }
@@ -67,6 +68,7 @@ export default {
 }
 
 .card-img-top {
+    height: 100%;
     width: 100%;
 }
 </style>
