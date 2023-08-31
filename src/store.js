@@ -6,7 +6,7 @@ export const store = reactive({
     movies: [],
     showDetails: {},
     paginationInfo: {},
-    currentPage: 2,
+    currentPage: 1,
     isLoading: false,
 })
 

@@ -58,7 +58,7 @@ export default {
 }
 
 .card {
-    height: 200px;
+    height: 200px; 
 }
 
 .card-title {
