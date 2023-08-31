@@ -14,8 +14,8 @@ export default {
 </script>
 
 <template>
-    <form class="d-flex" role="search">
-        <input class="form-control me-2 text-white bg-dark border-0" v-model="store.searchText" @keyup.enter="fetchMovies"
+    <form class="d-flex" role="search" @submit.prevent = "fetchMovies">
+        <input class="form-control me-2 text-white bg-dark border-0" v-model="store.searchText"
             type="search" placeholder="Search">
         <button class="btn text-white bg-primary" type="submit">Search</button>
     </form>

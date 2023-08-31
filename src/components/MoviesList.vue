@@ -37,13 +37,13 @@ export default {
 
             <div class="card border-0 rounded-0 h-100 bg-transparent text-white">
                 <img :src="getMovieImageUrl(movie.poster_path)" alt="Movie Poster" class="card-img-top">
-                <!--<div class="movie-details" v-if="movie.showDetails">
+                <div class="movie-details">
                     <p>Language: {{ movie.original_language }}</p>
                     <p>Popularity: {{ movie.popularity }}</p>
                     <p>original title: {{ movie.original_title }}</p>
                     <p>release date: {{ movie.release_date }}</p>
                     <p>average vote: {{ movie.vote_average }}</p>
-                </div>-->
+                </div>
                 <h5 class="card-title">{{ movie.title }}</h5>
             </div>
         </div>
@@ -86,7 +86,7 @@ export default {
 .movie-details {
     display: none;
     padding: 10px;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.4);
     position: absolute;
     bottom: 0;
     left: 0;
